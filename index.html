@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4CAF50">
+  <title>農業作業記録アプリ</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- ✅ Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script defer src="main.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-green-500 text-white p-4 text-center text-xl font-bold">
+    農業作業記録
+  </header>
+
+  <main class="p-4 max-w-2xl mx-auto">
+    <form id="logForm" class="space-y-4">
+      <!-- 作物名 -->
+      <label class="block">
+        <span class="font-medium">作物名</span>
+        <span id="cropName" class="ml-2">人参</span>
+        <input type="hidden" name="crop" value="人参">
+      </label>
+
+      <!-- 作業日 -->
+      <label id="dateLabel" style="display: inline-block;">
+        <span class="font-medium">作業日</span>
+        <input type="date" name="date" id="workDate" required
+               class="ml-2 px-2 py-1 border border-gray-300 rounded w-48">
+      </label>
+
+      <!-- 圃場選択 -->
+      <div class="mb-4">
+        <p class="font-medium mb-1">圃場（畑）</p>
+        <input type="hidden" name="field" id="fieldInput">
+        <div id="fieldButtons" class="grid grid-cols-3 gap-4">
+          
+          <button type="button" class="field-btn text-center bg-gray-200 text-black border border-gray-300 rounded p-2 transition hover:bg-green-400 hover:text-white hover:border-green-600
+" data-field="A">
+            <img src="images/field.jpg" alt="圃場A"
+                class="w-20 h-20 object-cover rounded mx-auto">
+            <div class="field-label mt-1 font-semibold text-sm">A</div>
+          </button>
+
+          <button type="button" class="field-btn text-center bg-gray-200 text-black border border-gray-300 rounded p-2 transition hover:bg-green-400 hover:text-white hover:border-green-600
+" data-field="B">
+            <img src="images/field.jpg" alt="圃場B"
+                class="w-20 h-20 object-cover rounded mx-auto">
+            <div class="field-label mt-1 font-semibold text-sm">B</div>
+          </button>
+
+          <button type="button" class="field-btn text-center bg-gray-200 text-black border border-gray-300 rounded p-2 transition hover:bg-green-400 hover:text-white hover:border-green-600
+" data-field="C">
+            <img src="images/field.jpg" alt="圃場C"
+                class="w-20 h-20 object-cover rounded mx-auto">
+            <div class="field-label mt-1 font-semibold text-sm">C</div>
+          </button>
+
+        </div>
+      </div>
+
+
+      <!-- 作業内容 -->
+      <div>
+        <p class="font-medium mb-1">作業内容</p>
+        <input type="hidden" name="task" id="taskInput">
+        <div id="taskButtons" class="grid grid-cols-3 flex-wrap gap-2">
+          <button type="button" class="task-btn px-3 py-1 bg-gray-200 border rounded hover:bg-green-400 hover:text-white hover:border-green-600" data-task="種まき">種まき</button>
+          <button type="button" class="task-btn px-3 py-1 bg-gray-200 border rounded hover:bg-green-400 hover:text-white hover:border-green-600" data-task="水やり">水やり</button>
+          <button type="button" class="task-btn px-3 py-1 bg-gray-200 border rounded hover:bg-green-400 hover:text-white hover:border-green-600" data-task="除草">除草</button>
+          <button type="button" class="task-btn px-3 py-1 bg-gray-200 border rounded hover:bg-green-400 hover:text-white hover:border-green-600" data-task="追肥">追肥</button>
+          <button type="button" class="task-btn px-3 py-1 bg-gray-200 border rounded hover:bg-green-400 hover:text-white hover:border-green-600" data-task="収穫">収穫</button>
+        </div>
+      </div>
+
+      <!-- メモ -->
+      <label class="block">
+        <span class="font-medium">メモ</span>
+        <textarea name="memo" class="block mt-1 p-2 border rounded w-full h-20"></textarea>
+      </label>
+
+      <!-- 記録ボタン -->
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        記録する
+      </button>
+    </form>
+
+    <!-- 記録一覧 -->
+    <section id="logList" class="mt-8">
+      <h2 class="text-lg font-bold mb-2">記録一覧</h2>
+      <ul class="space-y-1 text-sm list-disc list-inside"></ul>
+    </section>
+  </main>
+</body>
+</html>

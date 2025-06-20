@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>管理画面 - 農業作業記録</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="admin.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-2xl font-bold mb-4">管理画面</h1>
+
+  <!-- 圃場の編集（先に表示） -->
+  <section class="mb-6">
+    <h2 class="text-xl font-semibold mb-2">圃場の管理</h2>
+    <div class="flex gap-2 mb-2">
+      <!-- 圃場名の入力 -->
+      <input type="text" id="newField" placeholder="圃場名" class="border px-2 py-1">
+
+      <!-- 圃場面積の入力（アール） -->
+      <input type="number" id="newFieldArea" placeholder="面積（アール）" class="border px-2 py-1 w-32 ml-2">
+      <span class="ml-1">a（アール）</span>
+
+      <!-- 登録ボタン -->
+      <button id="addFieldBtn" class="bg-green-500 text-white px-3 py-1 rounded ml-2">追加</button>
+    </div>
+    <ul id="fieldList" class="bg-white p-4 rounded shadow"></ul>
+  </section>
+
+  <!-- 作業内容の編集（後に表示） -->
+  <section>
+    <h2 class="text-xl font-semibold mb-2">作業内容の管理</h2>
+    <div class="flex gap-2 mb-2">
+      <input type="text" id="newTask" placeholder="新しい作業内容" class="border px-2 py-1">
+      <button id="addTaskBtn" class="bg-green-500 text-white px-4 py-1 rounded">追加</button>
+    </div>
+    <ul id="taskList" class="bg-white p-4 rounded shadow"></ul>
+  </section>
+</body>
+</html>
