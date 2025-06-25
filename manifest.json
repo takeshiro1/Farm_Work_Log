@@ -1,7 +1,7 @@
 {
   "name": "農業作業記録アプリ",
   "short_name": "作業記録",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
